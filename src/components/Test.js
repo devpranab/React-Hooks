@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 const Test = props => {
     const [myName, setMyName] = useState("");
@@ -10,17 +10,24 @@ const Test = props => {
     const changeState = () => {
         setMyName("Pranav");
         setMyInfo({
-            a: "Hello",
+            ...myInfo,
             b: "kolkata"
-        })
+        });
     }
-  console.log("MyInfo:", myInfo);
+
+    //componentDidMount
+    //componentDidUpdate
+    useEffect(() => {
+        console.log("MyInfo:", myInfo);
+    }, [myInfo]); //when myInfo update then call
+
+    //console.log("MyInfo:", myInfo);
     return(
         <div>
       <button onClick={changeState}>Change</button>
  
         </div>
-    )
+    );
 }
 
 export default Test;
