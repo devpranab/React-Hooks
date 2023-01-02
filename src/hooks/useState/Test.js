@@ -1,13 +1,17 @@
 import React, {useState} from 'react';
 
 const Test = () => {
-    const testState = useState("Hi Pranav!");
-    return (
+    const testState = useState("");
+    console.log(testState);//2 param value & f()
+    if(testState[0] === ""){
+        testState[1]("Hello Pranav");
+    }
+    return(
         <div>
+        <h1>Use of useState hook:</h1>
         <h2>{testState[0]}</h2>
-        <h3>{testState[1]}</h3>
         </div>
-    );
-};
+    )
+}
 
 export default Test;
