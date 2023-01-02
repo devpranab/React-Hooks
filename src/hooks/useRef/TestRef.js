@@ -1,18 +1,18 @@
-import React,{ useRef } from "react";
+// import React,{ useRef } from "react";
 
-const TestRef = () => {
-  let ref = useRef(0);
+// const TestRef = () => {
+//   let ref = useRef(0);
 
-  function handleClick() {
-    ref.current = ref.current + 1;
-    alert('You clicked ' + ref.current + ' times!');
-  }
+//   function handleClick() {
+//     ref.current = ref.current + 1;
+//     alert('You clicked ' + ref.current + ' times!');
+//   }
 
-  return (
-    <button onClick={handleClick}>
-      Click me!
-    </button>
-  );
-}
+//   return (
+//     <button onClick={handleClick}>
+//       Click me!
+//     </button>
+//   );
+// }
 
-export default TestRef;
+// export default TestRef;
