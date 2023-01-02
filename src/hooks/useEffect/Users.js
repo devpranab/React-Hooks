@@ -1,22 +1,26 @@
 import React, {useState, useEffect} from 'react';
 
+//dynamic data load, API call useEffect integrate state
 const Users = () => {
-    const [count, setCount] = useState(0);
-  
- // Similar to componentDidMount and componentDidUpdate:
-  useEffect(() => {
-    // Update the document title using the browser API
-    document.title = `You clicked ${count} times`;
-  });
+    const [users, setUsers] = useState([]);
 
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
-  );
-}
+    useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then(res => res.json())
+    .then(data => setUsers(data));
+    },[]);
+
+    return (
+        <div>
+            <h1>Use of useEffect hook:</h1>
+            <h2>Dynamic Users: {users.length}</h2>
+            <ul>
+                {
+                    users.map(user => <li>{user.email}</li>)
+                }
+            </ul>
+        </div>
+    );
+};
 
 export default Users;
