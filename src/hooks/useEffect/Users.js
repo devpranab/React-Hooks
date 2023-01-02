@@ -1,26 +1,31 @@
 import React, {useState, useEffect} from 'react';
 
-//dynamic data load, API call useEffect integrate state
+//use array destructure better than indexing
 const Users = () => {
-    const [users, setUsers] = useState([]);
+    const [myName, setMyName] = useState("");
+    const [myInfo, setMyInfo] = useState({
+        a: "Hello",
+        b: "World!"
+    });
 
+    const changeState = () => {
+        setMyName("Pranav");
+        // setMyName({
+        //     ...myInfo,
+        //     b: "New Word"
+        // });
+    }
+    
     useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-    .then(res => res.json())
-    .then(data => setUsers(data));
-    },[]);
-
-    return (
-        <div>
-            <h1>Use of useEffect hook:</h1>
-            <h2>Dynamic Users: {users.length}</h2>
-            <ul>
-                {
-                    users.map(user => <li>{user.email}</li>)
-                }
-            </ul>
-        </div>
-    );
-};
+    console.log("MyInfo:", myInfo);
+    },[myInfo, myName]); //when 2 argu. update then call useEffect
+  
+    return(
+      <div>
+      <button onClick={changeState}>Show</button>
+      <h2>{myName}</h2>
+      </div>
+    )
+}
 
 export default Users;
