@@ -1,25 +1,22 @@
-import React, { useState } from "react";
-//use array destructure better than indexing
+import React, {useState} from "react";
 
 const Test = () => {
-  const [myName, setMyName] = useState("");
-  const [myInfo, setMyInfo] = useState({});
+    const [myName, setMyName] = useState("");
+    const [myInfo, setMyInfo] = useState([1,2,3]);
 
-  const changeState = () => {
-    setMyName("Pranav");
-    setMyInfo({
-      age: 22,
-      address: "kolkata,India",
-    });
-  };
-
-  return (
-    <div>
+    const changeState = () => {
+        setMyName("Pranav");
+        console.log(...myInfo);
+        setMyInfo(...myInfo.concat(4));
+    }
+  
+    return(
+      <div>
       <button onClick={changeState}>Show</button>
       <h2>{myName}</h2>
-      <h3>{myInfo.age}</h3>
-    </div>
-  );
-};
+      <h2>{myInfo}</h2>
+      </div>
+    )
+}
 
 export default Test;
