@@ -1,23 +1,18 @@
-import React, {useState, useEffect, useRef} from "react";
+import React,{ useRef } from "react";
 
 const TestRef = () => {
-  const [inputValue, setInputValue] = useState("");
-  const previousInputValue = useRef("");
+  let ref = useRef(0);
 
-  useEffect(() => {
-    previousInputValue.current = inputValue;
-  }, [inputValue]);
+  function handleClick() {
+    ref.current = ref.current + 1;
+    alert('You clicked ' + ref.current + ' times!');
+  }
 
   return (
-      <div>
-    <input
-      type="text"
-      value={inputValue}
-      onChange={(e) => setInputValue(e.target.value)}
-    />
-    <h2>Current Value: {inputValue}</h2>
-    <h2>Previous Value: {previousInputValue.current}</h2>
-  </div>
+    <button onClick={handleClick}>
+      Click me!
+    </button>
   );
-};
+}
+
 export default TestRef;
