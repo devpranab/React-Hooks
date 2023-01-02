@@ -1,16 +1,23 @@
 import React, { useState } from "react";
+//use array destructure better than indexing
 
 const Test = () => {
-  const [count, setCount] = useState(0); //array destructure
-  // function
-  const handleIncrement = () => {
-    //const newCount = count + 1;
-    setCount(count + 1);
+  const [myName, setMyName] = useState("");
+  const [myInfo, setMyInfo] = useState({});
+
+  const changeState = () => {
+    setMyName("Pranav");
+    setMyInfo({
+      age: 22,
+      address: "kolkata,India",
+    });
   };
+
   return (
     <div>
-      <h1>Count: {count}</h1>
-      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={changeState}>Show</button>
+      <h2>{myName}</h2>
+      <h3>{myInfo.age}</h3>
     </div>
   );
 };
